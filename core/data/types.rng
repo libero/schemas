@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+    <define name="libero.types.id">
+
+        <data type="string">
+            <param name="pattern">\s*[A-Za-z0-9\-._]+\s*</param>
+        </data>
+
+    </define>
+
+</grammar>

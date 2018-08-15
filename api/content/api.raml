@@ -1,0 +1,93 @@
+#%RAML 1.0 ResourceType
+title: Libero content API
+
+uses:
+  base: ../../core/api.raml
+
+types:
+    ID:
+        type: string
+        pattern: ^[A-Za-z0-9\-._]+$
+    Version:
+        type: LatestVersion | NumberVersion
+    LatestVersion:
+        type: string
+        enum: [latest]
+    NumberVersion:
+        type: integer
+        minimum: 1
+
+/{id}:
+    type:
+        base.item:
+            resource: Content item
+    description: |
+        Single content item.
+    uriParameters:
+        id:
+            description: |
+                Content item ID.
+            type: ID
+
+    delete:
+        description: |
+            Delete a content item.
+        responses:
+            202:
+                description: |
+                    Deletion request accepted.
+
+    /versions:
+        description: |
+            Versions of a content item.
+
+        post:
+            description: |
+                Create a content item version.
+            responses:
+                202:
+                    description: |
+                        Creation request accepted.
+
+        /{version}:
+            description: |
+                Content item version.
+            uriParameters:
+                version:
+                    description: |
+                        Content item version number.
+                    type: Version
+            delete:
+                description: |
+                    Delete a content item version.
+                responses:
+                    202:
+                        description: |
+                            Deletion request accepted.
+            put:
+                description: |
+                    Update a content item version.
+                responses:
+                    202:
+                        description: |
+                            Update request accepted.
+
+            /front:
+                type:
+                    base.item:
+                        resource: Content item version front
+                description: |
+                    Content item version front.
+                get:
+                    description: |
+                        Get content item version front.
+                    is:
+                        - base.hasLanguage
+                    responses:
+                        200:
+                            description: |
+                                Content item version front.
+                            body:
+                                application/xml:
+                                    type: <<frontType>>
+                                    example: <<frontExample>>

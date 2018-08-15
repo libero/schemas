@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<grammar ns="http://libero.pub" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+         xmlns="http://relaxng.org/ns/structure/1.0"
+         xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+
+    <div>
+
+        <a:documentation>@xml:lang attribute</a:documentation>
+
+        <define name="libero.attributes.lang">
+
+            <attribute name="xml:lang">
+                <ref name="libero.attributes.lang.content"/>
+            </attribute>
+
+        </define>
+
+        <define name="libero.attributes.lang.content">
+            <data type="language"/>
+        </define>
+
+    </div>
+
+</grammar>
