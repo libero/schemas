@@ -44,6 +44,9 @@ types:
         post:
             description: |
                 Create a content item version.
+            body:
+                application/xml:
+                    type: !include data/content.rng
             responses:
                 202:
                     description: |
@@ -67,6 +70,9 @@ types:
             put:
                 description: |
                     Update a content item version.
+                body:
+                    application/xml:
+                        type: !include data/content.rng
                 responses:
                     202:
                         description: |

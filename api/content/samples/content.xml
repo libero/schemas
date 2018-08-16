@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<content xmlns="http://libero.pub">
+
+    <front xml:lang="en">
+        
+        <id>content-id</id>
+        <title>Content title</title>
+        
+    </front>
+    
+    <front xml:lang="es">
+        
+        <id>content-id</id>
+        <title>Título del contenido</title>
+        
+    </front>
+    
+</content>

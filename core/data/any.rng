@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<grammar ns="http://libero.pub" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0">
+
+    <define name="libero.anything">
+        <interleave>
+            <zeroOrMore>
+                <ref name="libero.anything.element"/>
+            </zeroOrMore>
+            <text/>
+        </interleave>
+    </define>
+
+    <define name="libero.anything.element">
+        <element>
+            <anyName/>
+            <zeroOrMore>
+                <ref name="libero.anything.attribute"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="libero.anything"/>
+            </zeroOrMore>
+        </element>
+    </define>
+
+    <define name="libero.anything.attribute">
+        <attribute>
+            <anyName/>
+        </attribute>
+    </define>
+
+</grammar>
