@@ -1,0 +1,16 @@
+{
+    "type": "project",
+    "license": "MIT",
+    "autoload-dev": {
+        "psr-4": {
+            "tests\\Libero\\Schemas\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "php": "^7.2",
+        "ext-dom": "*",
+        "fluentdom/fluentdom": "^7.0",
+        "phpunit/phpunit": "^7.3",
+        "symfony/finder": "^4.1"
+    }
+}

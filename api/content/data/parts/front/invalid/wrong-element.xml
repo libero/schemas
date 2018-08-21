@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../schemas/basic.rng"?>
+
+<back xmlns="http://libero.pub" xml:lang="en">
+
+    <id>some-id</id>
+    <title>Some Title</title>
+
+</back>
