@@ -10,7 +10,14 @@
         "php": "^7.2",
         "ext-dom": "*",
         "fluentdom/fluentdom": "^7.0",
+        "lstrojny/functional-php": "^1.8",
         "phpunit/phpunit": "^7.3",
         "symfony/finder": "^4.1"
+    },
+    "config": {
+        "platform": {
+            "php": "7.2.8"
+        },
+        "sort-packages": true
     }
 }

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../schema.rng"?>
+<?expected-failure Type language doesn't allow value 'en_GB'?>
+<?expected-failure Element root failed to validate attributes?>
 
 <test:root xmlns:test="http://libero.pub/tests" xml:lang="en_GB"/>

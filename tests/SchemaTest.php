@@ -6,6 +6,8 @@ use DOMDocument;
 use FluentDOM;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Finder\Finder;
+use function Functional\pluck;
+use function str_replace;
 
 final class SchemaTest extends TestCase
 {
@@ -22,19 +24,19 @@ final class SchemaTest extends TestCase
     /**
      * @dataProvider invalidFileProvider
      */
-    public function testInvalid(DOMDocument $document, string $schema) : void
+    public function testInvalid(DOMDocument $document, string $schema, array $expected) : void
     {
-        $problems = [];
+        $actual = [];
         set_error_handler(
-            function (int $number, string $string) use (&$problems) : void {
-                $problems[] = $string;
+            function (int $number, string $string) use (&$actual) : void {
+                $actual[] = str_replace('DOMDocument::relaxNGValidate(): ', '', $string);
             }
         );
         $result = $document->relaxNGValidate($schema);
         restore_error_handler();
 
         $this->assertFalse($result);
-        $this->assertNotEmpty($problems);
+        $this->assertSame($expected, $actual);
     }
 
     public function validFileProvider() : iterable
@@ -65,7 +67,12 @@ final class SchemaTest extends TestCase
             $schema = $dom('substring-before(substring-after(/processing-instruction("xml-model"), \'"\'), \'"\')');
             $schema = "{$file->getPath()}/{$schema}";
 
-            yield $file->getRelativePathname() => [$dom, $schema];
+            $expectedFailures = pluck(
+                $dom('/processing-instruction("expected-failure")'),
+                'nodeValue'
+            );
+
+            yield $file->getRelativePathname() => [$dom, $schema, $expectedFailures];
         }
     }
 }
