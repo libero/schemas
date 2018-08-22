@@ -3,4 +3,4 @@
 <?expected-failure Type language doesn't allow value 'en_GB'?>
 <?expected-failure Element root failed to validate attributes?>
 
-<test:root xmlns:test="http://libero.pub/tests" xml:lang="en_GB"/>
+<test:root xmlns:test="http://libero.pub/test" xml:lang="en_GB"/>
