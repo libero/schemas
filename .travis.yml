@@ -17,7 +17,7 @@ before_install:
     - phpenv config-rm xdebug.ini
 
 install:
-    - travis_retry composer install --prefer-dist
+    - travis_retry composer install --classmap-authoritative --no-suggest --prefer-dist
 
 script:
     - vendor/bin/phpunit
