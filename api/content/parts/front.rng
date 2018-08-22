@@ -3,7 +3,7 @@
 <grammar ns="http://libero.pub" xmlns="http://relaxng.org/ns/structure/1.0"
          xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
 
-    <include href="../../../../core/data/core.rng"/>
+    <include href="../../../core/core.rng"/>
 
     <start>
         <ref name="libero.content.front"/>
