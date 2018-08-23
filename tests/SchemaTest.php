@@ -23,9 +23,10 @@ final class SchemaTest extends TestCase
     }
 
     /**
+     * @test
      * @dataProvider validFileProvider
      */
-    public function testValid(DOMDocument $document, string $schema) : void
+    public function valid_documents_pass(DOMDocument $document, string $schema) : void
     {
         $result = $document->relaxNGValidate($schema);
 
@@ -33,9 +34,10 @@ final class SchemaTest extends TestCase
     }
 
     /**
+     * @test
      * @dataProvider invalidFileProvider
      */
-    public function testInvalid(DOMDocument $document, string $schema, array $expected) : void
+    public function invalid_documents_fail(DOMDocument $document, string $schema, array $expected) : void
     {
         $document->relaxNGValidate($schema);
 
