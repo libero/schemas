@@ -6,6 +6,7 @@ use DOMDocument;
 use FluentDOM;
 use FluentDOM\DOM\ProcessingInstruction;
 use LibXMLError;
+use LogicException;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Finder\Finder;
 use function Functional\map;
@@ -92,8 +93,15 @@ final class SchemaTest extends TestCase
 
             $expectedFailures = map(
                 $dom('/processing-instruction("expected-error")'),
-                function (ProcessingInstruction $instruction) : array {
-                    preg_match('~line="([0-9]+)"\s+message="([^"]*?)"~', $instruction->nodeValue, $matches);
+                function (ProcessingInstruction $instruction) use ($file) : array {
+                    $valid = preg_match('~line="([0-9]+)"\s+message="([^"]*?)"~', $instruction->nodeValue, $matches);
+
+                    if (!$valid) {
+                        throw new LogicException(
+                            'Invalid expected-error processing instruction in '.
+                            $file->getRelativePathname()
+                        );
+                    }
 
                     return [
                         'line' => (int) $matches[1],
