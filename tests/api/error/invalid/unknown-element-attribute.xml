@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../../core/error.rng"?>
+<?xml-model href="../../../../api/error.rng"?>
 <?expected-error line="10" message="Invalid attribute key for element status"?>
 <?expected-error line="11" message="Invalid attribute key for element title"?>
 <?expected-error line="0" message="Extra element type in interleave"?>
