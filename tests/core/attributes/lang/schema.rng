@@ -2,7 +2,7 @@
 
 <grammar ns="http://libero.pub/test" xmlns="http://relaxng.org/ns/structure/1.0">
 
-    <include href="../../../test.rng"/>
+    <include href="../../../test-case.rng"/>
 
     <start>
         <ref name="libero.tests.root"/>
