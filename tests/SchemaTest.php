@@ -87,8 +87,8 @@ final class SchemaTest extends TestCase
         foreach ($files as $file) {
             $dom = FluentDOM::load($file->getContents());
 
-            $schema = $dom('substring-before(substring-after(/processing-instruction("xml-model"), \'"\'), \'"\')');
-            $schema = "{$file->getPath()}/{$schema}";
+            $relativeSchema = $dom('substring-before(substring-after(/processing-instruction("xml-model"), \'"\'), \'"\')');
+            $schema = "{$file->getPath()}/{$relativeSchema}";
 
             $expectedFailures = map(
                 $dom('/processing-instruction("expected-error")'),
