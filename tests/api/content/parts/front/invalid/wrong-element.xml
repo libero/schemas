@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../schemas/basic.rng"?>
+<?xml-model href="../basic.rng"?>
+<?expected-error line="5" message="Expecting element front, got back"?>
 
 <back xmlns="http://libero.pub" xml:lang="en">
 

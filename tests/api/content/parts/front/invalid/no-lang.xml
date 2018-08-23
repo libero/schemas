@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../schemas/basic.rng"?>
+<?xml-model href="../basic.rng"?>
+<?expected-error line="7" message="Element front failed to validate attributes"?>
 
 <front xmlns="http://libero.pub">
 

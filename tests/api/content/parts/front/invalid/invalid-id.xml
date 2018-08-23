@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../basic.rng"?>
+<?expected-error line="8" message="Error validating datatype string"?>
+<?expected-error line="8" message="Element id failed to validate content"?>
+
+<front xmlns="http://libero.pub" xml:lang="en">
+
+    <id/>
+    <title>Some Title</title>
+
+</front>

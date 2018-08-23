@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<grammar ns="http://libero.pub" xmlns="http://relaxng.org/ns/structure/1.0"
-         xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar ns="http://libero.pub" xmlns="http://relaxng.org/ns/structure/1.0">
 
     <include href="../../core/core.rng"/>
 
@@ -9,22 +8,16 @@
         <ref name="libero.content"/>
     </start>
 
-    <div>
+    <define name="libero.content">
 
-        <a:documentation>content element</a:documentation>
+        <element name="content">
 
-        <define name="libero.content">
+            <oneOrMore>
+                <ref name="libero.anything.element"/>
+            </oneOrMore>
 
-            <element name="content">
+        </element>
 
-                <oneOrMore>
-                    <ref name="libero.anything.element"/>
-                </oneOrMore>
-
-            </element>
-
-        </define>
-
-    </div>
+    </define>
 
 </grammar>

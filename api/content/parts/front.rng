@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<grammar ns="http://libero.pub" xmlns="http://relaxng.org/ns/structure/1.0"
-         xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar ns="http://libero.pub" xmlns="http://relaxng.org/ns/structure/1.0">
 
     <include href="../../../core/core.rng"/>
 
@@ -9,78 +8,60 @@
         <ref name="libero.content.front"/>
     </start>
 
-    <div>
+    <define name="libero.content.front">
 
-        <a:documentation>front element</a:documentation>
+        <element name="front">
+            <ref name="libero.content.front.attributes"/>
+            <ref name="libero.content.front.content"/>
+        </element>
 
-        <define name="libero.content.front">
+    </define>
 
-            <element name="front">
-                <ref name="libero.content.front.attributes"/>
-                <ref name="libero.content.front.content"/>
-            </element>
+    <define name="libero.content.front.attributes">
+        <ref name="libero.core.attributes.lang"/>
+    </define>
 
-        </define>
+    <define name="libero.content.front.content">
 
-        <define name="libero.content.front.attributes">
-            <ref name="libero.attributes.lang"/>
-        </define>
+        <interleave>
+            <ref name="libero.content.front.content.id"/>
+            <ref name="libero.content.front.content.title"/>
+        </interleave>
 
-        <define name="libero.content.front.content">
+    </define>
 
-            <interleave>
-                <ref name="libero.content.front.content.id"/>
-                <ref name="libero.content.front.content.title"/>
-            </interleave>
+    <define name="libero.content.front.content.id">
 
-        </define>
+        <element name="id">
+            <ref name="libero.content.front.content.id.attributes"/>
+            <ref name="libero.content.front.content.id.content"/>
+        </element>
 
-    </div>
+    </define>
 
-    <div>
+    <define name="libero.content.front.content.id.attributes">
+        <empty/>
+    </define>
 
-        <a:documentation>front/id element</a:documentation>
+    <define name="libero.content.front.content.id.content">
+        <ref name="libero.core.types.id"/>
+    </define>
 
-        <define name="libero.content.front.content.id">
+    <define name="libero.content.front.content.title">
 
-            <element name="id">
-                <ref name="libero.content.front.content.id.attributes"/>
-                <ref name="libero.content.front.content.id.content"/>
-            </element>
+        <element name="title">
+            <ref name="libero.content.front.content.title.attributes"/>
+            <ref name="libero.content.front.content.title.content"/>
+        </element>
 
-        </define>
+    </define>
 
-        <define name="libero.content.front.content.id.attributes">
-            <empty/>
-        </define>
+    <define name="libero.content.front.content.title.attributes">
+        <empty/>
+    </define>
 
-        <define name="libero.content.front.content.id.content">
-            <ref name="libero.types.id"/>
-        </define>
-
-    </div>
-
-    <div>
-
-        <a:documentation>front/title element</a:documentation>
-
-        <define name="libero.content.front.content.title">
-
-            <element name="title">
-                <ref name="libero.content.front.content.title.attributes"/>
-                <ref name="libero.content.front.content.title.content"/>
-            </element>
-
-        </define>
-
-        <define name="libero.content.front.content.title.attributes">
-            <empty/>
-        </define>
-
-        <define name="libero.content.front.content.title.content">
-            <ref name="libero.text.limited"/>
-        </define>
-
-    </div>
+    <define name="libero.content.front.content.title.content">
+        <ref name="libero.text.limited"/>
+    </define>
 
 </grammar>
