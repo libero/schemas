@@ -46,7 +46,7 @@ final class SchemaTest extends TestCase
             function (LibXMLError $error) : array {
                 return [
                     'line' => $error->line,
-                    'text' => trim($error->message),
+                    'message' => trim($error->message),
                 ];
             }
         );
@@ -83,13 +83,13 @@ final class SchemaTest extends TestCase
             $schema = "{$file->getPath()}/{$schema}";
 
             $expectedFailures = map(
-                $dom('/processing-instruction("expected-failure")'),
+                $dom('/processing-instruction("expected-error")'),
                 function (ProcessingInstruction $instruction) : array {
-                    preg_match('~line="([0-9]+)"\s+text="([^"]*?)"~', $instruction->nodeValue, $matches);
+                    preg_match('~line="([0-9]+)"\s+message="([^"]*?)"~', $instruction->nodeValue, $matches);
 
                     return [
                         'line' => (int) $matches[1],
-                        'text' => $matches[2],
+                        'message' => $matches[2],
                     ];
                 }
             );
