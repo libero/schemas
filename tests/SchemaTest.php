@@ -4,13 +4,24 @@ namespace tests\Libero\Schemas;
 
 use DOMDocument;
 use FluentDOM;
+use FluentDOM\DOM\ProcessingInstruction;
+use LibXMLError;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Finder\Finder;
-use function Functional\pluck;
-use function str_replace;
+use function Functional\map;
+use function libxml_clear_errors;
+use function preg_match;
 
 final class SchemaTest extends TestCase
 {
+    /**
+     * @before
+     */
+    public function clearLibXmlErrors() : void
+    {
+        libxml_clear_errors();
+    }
+
     /**
      * @dataProvider validFileProvider
      */
@@ -26,16 +37,18 @@ final class SchemaTest extends TestCase
      */
     public function testInvalid(DOMDocument $document, string $schema, array $expected) : void
     {
-        $actual = [];
-        set_error_handler(
-            function (int $number, string $string) use (&$actual) : void {
-                $actual[] = str_replace('DOMDocument::relaxNGValidate(): ', '', $string);
+        $document->relaxNGValidate($schema);
+
+        $actual = map(
+            libxml_get_errors(),
+            function (LibXMLError $error) : array {
+                return [
+                    'line' => $error->line,
+                    'text' => trim($error->message),
+                ];
             }
         );
-        $result = $document->relaxNGValidate($schema);
-        restore_error_handler();
 
-        $this->assertFalse($result);
         $this->assertSame($expected, $actual);
     }
 
@@ -67,9 +80,16 @@ final class SchemaTest extends TestCase
             $schema = $dom('substring-before(substring-after(/processing-instruction("xml-model"), \'"\'), \'"\')');
             $schema = "{$file->getPath()}/{$schema}";
 
-            $expectedFailures = pluck(
+            $expectedFailures = map(
                 $dom('/processing-instruction("expected-failure")'),
-                'nodeValue'
+                function (ProcessingInstruction $instruction) : array {
+                    preg_match('~line="([0-9]+)"\s+text="([^"]*?)"~', $instruction->nodeValue, $matches);
+
+                    return [
+                        'line' => (int) $matches[1],
+                        'text' => $matches[2],
+                    ];
+                }
             );
 
             yield $file->getRelativePathname() => [$dom, $schema, $expectedFailures];
