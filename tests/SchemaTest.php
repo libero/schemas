@@ -29,8 +29,9 @@ final class SchemaTest extends TestCase
     public function valid_documents_pass(DOMDocument $document, string $schema) : void
     {
         $result = $document->relaxNGValidate($schema);
+        $errors = $this->getLibXmlErrors();
 
-        $this->assertTrue($result);
+        $this->assertTrue($result, "Document is not valid:\n".print_r($errors, true));
     }
 
     /**
@@ -39,19 +40,11 @@ final class SchemaTest extends TestCase
      */
     public function invalid_documents_fail(DOMDocument $document, string $schema, array $expected) : void
     {
-        $document->relaxNGValidate($schema);
+        $result = $document->relaxNGValidate($schema);
+        $errors = $this->getLibXmlErrors();
 
-        $actual = map(
-            libxml_get_errors(),
-            function (LibXMLError $error) : array {
-                return [
-                    'line' => $error->line,
-                    'message' => trim($error->message),
-                ];
-            }
-        );
-
-        $this->assertSame($expected, $actual);
+        $this->assertFalse($result, 'Document is considered valid when it is not');
+        $this->assertSame($expected, $errors);
     }
 
     public function validFileProvider() : iterable
@@ -72,6 +65,21 @@ final class SchemaTest extends TestCase
             ->path('~/invalid/~');
 
         return $this->extractSchemas($files);
+    }
+
+    private function getLibXmlErrors() : array
+    {
+        $errors = map(
+            libxml_get_errors(),
+            function (LibXMLError $error) : array {
+                return [
+                    'line' => $error->line,
+                    'message' => trim($error->message),
+                ];
+            }
+        );
+
+        return $errors;
     }
 
     private function extractSchemas(Finder $files) : iterable
