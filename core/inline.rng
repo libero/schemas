@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <grammar ns="http://libero.pub" xmlns="http://relaxng.org/ns/structure/1.0"
-         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
 
-    <define name="libero.text.limited">
+    <define name="libero.inline.full">
 
         <oneOrMore>
-
-            <choice>
-                <ref name="libero.text.limited.content"/>
-            </choice>
-
+            <ref name="libero.inline.full.content"/>
         </oneOrMore>
 
     </define>
 
-    <define name="libero.text.limited.content">
+    <define name="libero.inline.full.content">
+        <text/>
+    </define>
+
+    <define name="libero.inline.limited">
+
+        <oneOrMore>
+            <ref name="libero.inline.limited.content"/>
+        </oneOrMore>
+
+    </define>
+
+    <define name="libero.inline.limited.content">
         <text/>
     </define>
 

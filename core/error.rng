@@ -3,7 +3,7 @@
 <!-- As specified in https://www.ietf.org/rfc/rfc7807.txt -->
 
 <grammar ns="urn:ietf:rfc:7807" xmlns="http://relaxng.org/ns/structure/1.0"
-         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
 
     <start>
         <ref name="problem"/>
@@ -20,7 +20,7 @@
                     <element name="type">
                         <data type="anyURI"/>
                     </element>
-                    
+
                     <element name="title">
                         <data type="string"/>
                     </element>

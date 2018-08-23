@@ -61,7 +61,7 @@
     </define>
 
     <define name="libero.content.front.content.title.content">
-        <ref name="libero.text.limited"/>
+        <ref name="libero.inline.limited"/>
     </define>
 
 </grammar>
