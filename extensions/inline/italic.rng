@@ -3,11 +3,11 @@
 <grammar ns="http://libero.pub" xmlns="http://relaxng.org/ns/structure/1.0"
     datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
 
-    <define name="libero.inline.full.content" combine="choice">
+    <define name="libero.inline.full.highlighting" combine="choice">
         <ref name="libero.italic.full"/>
     </define>
 
-    <define name="libero.inline.limited.content" combine="choice">
+    <define name="libero.inline.limited.highlighting" combine="choice">
         <ref name="libero.italic.limited"/>
     </define>
 
