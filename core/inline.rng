@@ -12,7 +12,12 @@
     </define>
 
     <define name="libero.inline.full.content">
-        <text/>
+
+        <choice>
+            <ref name="libero.inline.full.formatting"/>
+            <text/>
+        </choice>
+
     </define>
 
     <define name="libero.inline.limited">
@@ -24,7 +29,28 @@
     </define>
 
     <define name="libero.inline.limited.content">
-        <text/>
+
+        <choice>
+            <ref name="libero.inline.limited.formatting"/>
+            <text/>
+        </choice>
+
+    </define>
+
+    <define name="libero.inline.full.formatting">
+        <ref name="libero.inline.full.highlighting"/>
+    </define>
+
+    <define name="libero.inline.limited.formatting">
+        <ref name="libero.inline.limited.highlighting"/>
+    </define>
+
+    <define name="libero.inline.full.highlighting">
+        <empty/>
+    </define>
+
+    <define name="libero.inline.limited.highlighting">
+        <empty/>
     </define>
 
 </grammar>
