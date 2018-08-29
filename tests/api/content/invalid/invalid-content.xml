@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../basic.rng"?>
+<?expected-error line="10" message="Element front failed to validate attributes"?>
+<?expected-error line="10" message="Expecting an element id, got nothing"?>
+<?expected-error line="10" message="Invalid sequence in interleave"?>
+<?expected-error line="10" message="Element front failed to validate content"?>
+
+<content xmlns="http://libero.pub">
+    
+    <front/>
+    
+</content>

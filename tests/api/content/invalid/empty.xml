@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../basic.rng"?>
+<?expected-error line="5" message="Expecting an element , got nothing"?>
+
+<content xmlns="http://libero.pub"/>

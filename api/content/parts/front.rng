@@ -2,12 +2,6 @@
 
 <grammar ns="http://libero.pub" xmlns="http://relaxng.org/ns/structure/1.0">
 
-    <include href="../../../core/core.rng"/>
-
-    <start>
-        <ref name="libero.content.front"/>
-    </start>
-
     <define name="libero.content.front">
 
         <element name="front">

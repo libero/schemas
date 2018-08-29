@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../basic.rng"?>
+<?expected-error line="7" message="Did not expect element not-front there"?>
+
+<content xmlns="http://libero.pub">
+    
+    <not-front xml:lang="en">
+        <id>1234</id>
+        <title>Title</title>
+    </not-front>
+
+</content>
