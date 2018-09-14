@@ -50,20 +50,14 @@ final class SchemaTest extends TestCase
 
     public function validFileProvider() : iterable
     {
-        $files = Finder::create()->files()
-            ->name('*.xml')
-            ->in(__DIR__)
-            ->path('~/valid/~');
+        $files = Finder::create()->files()->name('*.xml')->in(__DIR__)->path('~/valid/~');
 
         return $this->extractSchemas($files);
     }
 
     public function invalidFileProvider() : iterable
     {
-        $files = Finder::create()->files()
-            ->name('*.xml')
-            ->in(__DIR__)
-            ->path('~/invalid/~');
+        $files = Finder::create()->files()->name('*.xml')->in(__DIR__)->path('~/invalid/~');
 
         return $this->extractSchemas($files);
     }
