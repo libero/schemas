@@ -17,26 +17,8 @@
     <define name="libero.italic.full">
 
         <element name="italic">
-
             <ref name="libero.italic.full.attributes"/>
             <ref name="libero.italic.full.content"/>
-
-            <sch:pattern>
-                <sch:rule context="libero:italic">
-                    <sch:assert test="not(ancestor::libero:italic)">
-                        Italics must not be nested
-                    </sch:assert>
-                </sch:rule>
-            </sch:pattern>
-            
-            <sch:pattern>
-                <sch:rule context="libero:italic">
-                    <sch:assert test="* or normalize-space()">
-                        Italics must not be empty
-                    </sch:assert>
-                </sch:rule>
-            </sch:pattern>
-
         </element>
 
     </define>
@@ -65,5 +47,21 @@
     <define name="libero.italic.limited.content">
         <ref name="libero.inline.limited"/>
     </define>
+
+    <sch:pattern>
+        <sch:rule context="libero:italic">
+            <sch:assert test="not(ancestor::libero:italic)">
+                Italics must not be nested
+            </sch:assert>
+        </sch:rule>
+    </sch:pattern>
+
+    <sch:pattern>
+        <sch:rule context="libero:italic">
+            <sch:assert test="* or normalize-space()">
+                Italics must not be empty
+            </sch:assert>
+        </sch:rule>
+    </sch:pattern>
 
 </grammar>
