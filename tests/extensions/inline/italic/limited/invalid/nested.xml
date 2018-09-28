@@ -3,5 +3,5 @@
 <?xml-model href="../basic.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 <italic xmlns="http://libero.pub">
-    foo
+    foo <italic>bar</italic>
 </italic>
