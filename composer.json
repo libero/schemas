@@ -10,6 +10,7 @@
         "php": "^7.2",
         "ext-dom": "*",
         "ext-libxml": "*",
+        "erebot/dom": "^0.1.0",
         "fluentdom/fluentdom": "^7.0",
         "lstrojny/functional-php": "^1.8",
         "phpunit/phpunit": "^7.3",

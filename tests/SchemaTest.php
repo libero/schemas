@@ -2,7 +2,7 @@
 
 namespace tests\Libero\Schemas;
 
-use DOMDocument;
+use Erebot\DOM;
 use FluentDOM;
 use FluentDOM\DOM\ProcessingInstruction;
 use LibXMLError;
@@ -10,27 +10,18 @@ use LogicException;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Finder\Finder;
 use function Functional\map;
-use function libxml_clear_errors;
 use function preg_match;
 
 final class SchemaTest extends TestCase
 {
     /**
-     * @before
-     */
-    public function clearLibXmlErrors() : void
-    {
-        libxml_clear_errors();
-    }
-
-    /**
      * @test
      * @dataProvider validFileProvider
      */
-    public function valid_documents_pass(DOMDocument $document, string $schema) : void
+    public function valid_documents_pass(DOM $document, string $schema) : void
     {
         $result = $document->relaxNGValidate($schema);
-        $errors = $this->getLibXmlErrors();
+        $errors = $this->getLibXmlErrors($document);
 
         $this->assertTrue($result, "Document is not valid:\n".print_r($errors, true));
     }
@@ -39,10 +30,10 @@ final class SchemaTest extends TestCase
      * @test
      * @dataProvider invalidFileProvider
      */
-    public function invalid_documents_fail(DOMDocument $document, string $schema, array $expected) : void
+    public function invalid_documents_fail(DOM $document, string $schema, array $expected) : void
     {
         $result = $document->relaxNGValidate($schema);
-        $errors = $this->getLibXmlErrors();
+        $errors = $this->getLibXmlErrors($document);
 
         $this->assertFalse($result, 'Document is considered valid when it is not');
         $this->assertSame($expected, $errors);
@@ -68,10 +59,10 @@ final class SchemaTest extends TestCase
         return $this->extractSchemas($files);
     }
 
-    private function getLibXmlErrors() : array
+    private function getLibXmlErrors(DOM $document) : array
     {
         $errors = map(
-            libxml_get_errors(),
+            $document->getErrors(),
             function (LibXMLError $error) : array {
                 return [
                     'line' => $error->line,
@@ -109,6 +100,9 @@ final class SchemaTest extends TestCase
                     ];
                 }
             );
+
+            $dom = new DOM();
+            $dom->loadXML($file->getContents());
 
             yield $file->getRelativePathname() => [$dom, $schema, $expectedFailures];
         }
