@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../basic.rng"?>
+
+<item-list xmlns="http://libero.pub">
+
+    <item-ref id="12345" service="service-prefix"/>
+    <item-ref id="67890" service="service-prefix"/>
+    
+</item-list>

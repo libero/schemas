@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../basic.rng"?>
+<?expected-error line="7" message="Did not expect element not-item-ref there"?>
+
+<item-list xmlns="http://libero.pub">
+
+    <not-item-ref id="12345" service="service-prefix"/>
+
+</item-list>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../extra-attribute.rng"?>
+
+<item-list xmlns="http://libero.pub" xmlns:test="http://libero.pub/test" test:key="value"/>
