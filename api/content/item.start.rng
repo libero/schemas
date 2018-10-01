@@ -3,10 +3,10 @@
 <grammar ns="http://libero.pub" xmlns="http://relaxng.org/ns/structure/1.0">
 
     <include href="../../core/core.rng"/>
-    <include href="content.rng"/>
+    <include href="item.rng"/>
 
     <start>
-        <ref name="libero.content"/>
+        <ref name="libero.content.item"/>
     </start>
 
 </grammar>

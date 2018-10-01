@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../basic.rng"?>
+<?expected-error line="5" message="Expecting element item, got not-item"?>
 
-<content xmlns="http://libero.pub">
-
+<not-item xmlns="http://libero.pub">
+    
     <front xml:lang="en">
         <id>1234</id>
         <title>Title</title>
     </front>
-
-    <front xml:lang="es">
-        <id>1234</id>
-        <title>Título</title>
-    </front>
-
-</content>
+    
+</not-item>

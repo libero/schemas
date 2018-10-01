@@ -5,8 +5,8 @@
 <?expected-error line="10" message="Invalid sequence in interleave"?>
 <?expected-error line="10" message="Element front failed to validate content"?>
 
-<content xmlns="http://libero.pub">
+<item xmlns="http://libero.pub">
     
     <front/>
     
-</content>
+</item>

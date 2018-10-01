@@ -2,59 +2,59 @@
 
 <grammar ns="http://libero.pub" xmlns="http://relaxng.org/ns/structure/1.0">
 
-    <define name="libero.content.front">
+    <define name="libero.content.item.front">
 
         <element name="front">
-            <ref name="libero.content.front.attributes"/>
-            <ref name="libero.content.front.content"/>
+            <ref name="libero.content.item.front.attributes"/>
+            <ref name="libero.content.item.front.content"/>
         </element>
 
     </define>
 
-    <define name="libero.content.front.attributes">
+    <define name="libero.content.item.front.attributes">
         <ref name="libero.core.attributes.lang"/>
     </define>
 
-    <define name="libero.content.front.content">
+    <define name="libero.content.item.front.content">
 
         <interleave>
-            <ref name="libero.content.front.content.id"/>
-            <ref name="libero.content.front.content.title"/>
+            <ref name="libero.content.item.front.content.id"/>
+            <ref name="libero.content.item.front.content.title"/>
         </interleave>
 
     </define>
 
-    <define name="libero.content.front.content.id">
+    <define name="libero.content.item.front.content.id">
 
         <element name="id">
-            <ref name="libero.content.front.content.id.attributes"/>
-            <ref name="libero.content.front.content.id.content"/>
+            <ref name="libero.content.item.front.content.id.attributes"/>
+            <ref name="libero.content.item.front.content.id.content"/>
         </element>
 
     </define>
 
-    <define name="libero.content.front.content.id.attributes">
+    <define name="libero.content.item.front.content.id.attributes">
         <empty/>
     </define>
 
-    <define name="libero.content.front.content.id.content">
+    <define name="libero.content.item.front.content.id.content">
         <ref name="libero.core.types.id"/>
     </define>
 
-    <define name="libero.content.front.content.title">
+    <define name="libero.content.item.front.content.title">
 
         <element name="title">
-            <ref name="libero.content.front.content.title.attributes"/>
-            <ref name="libero.content.front.content.title.content"/>
+            <ref name="libero.content.item.front.content.title.attributes"/>
+            <ref name="libero.content.item.front.content.title.content"/>
         </element>
 
     </define>
 
-    <define name="libero.content.front.content.title.attributes">
+    <define name="libero.content.item.front.content.title.attributes">
         <empty/>
     </define>
 
-    <define name="libero.content.front.content.title.content">
+    <define name="libero.content.item.front.content.title.content">
         <ref name="libero.inline.limited"/>
     </define>
 

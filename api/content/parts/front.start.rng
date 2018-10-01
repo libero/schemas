@@ -6,7 +6,7 @@
     <include href="front.rng"/>
 
     <start>
-        <ref name="libero.content.front"/>
+        <ref name="libero.content.item.front"/>
     </start>
 
 </grammar>

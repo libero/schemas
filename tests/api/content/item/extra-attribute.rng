@@ -2,9 +2,9 @@
 
 <grammar ns="http://libero.pub/test" xmlns="http://relaxng.org/ns/structure/1.0">
 
-    <include href="../../../api/content/content.start.rng"/>
+    <include href="../../../../api/content/item.start.rng"/>
 
-    <define name="libero.content.attributes" combine="interleave">
+    <define name="libero.content.item.attributes" combine="interleave">
 
         <attribute name="key" ns="http://libero.pub/test">
             <text/>

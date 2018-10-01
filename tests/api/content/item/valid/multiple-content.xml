@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../basic.rng"?>
 
-<content xmlns="http://libero.pub">
+<item xmlns="http://libero.pub">
 
     <front xml:lang="en">
         <id>1234</id>
         <title>Title</title>
     </front>
 
-</content>
+    <front xml:lang="es">
+        <id>1234</id>
+        <title>Título</title>
+    </front>
+
+</item>

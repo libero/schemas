@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../extra-content.rng"?>
 
-<content xmlns="http://libero.pub" xmlns:test="http://libero.pub/test">
+<item xmlns="http://libero.pub" xmlns:test="http://libero.pub/test">
 
     <test:content/>
     <front xml:lang="en">
@@ -9,4 +9,4 @@
         <title>Title</title>
     </front>
 
-</content>
+</item>
