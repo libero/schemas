@@ -2,8 +2,7 @@ sudo: false
 
 language: php
 
-php:
-    - 7.2
+php: 7.2
 
 before_install:
     - phpenv config-rm xdebug.ini || true
@@ -11,11 +10,12 @@ before_install:
 install:
     - travis_retry composer install --classmap-authoritative --no-suggest --prefer-dist
 
-script:
-    - vendor/bin/phpunit
-
 jobs:
     include:
+
+        - stage: Test
+          script:
+          - vendor/bin/phpunit
 
         - stage: Code Quality
           env: CODING_STANDARDS
