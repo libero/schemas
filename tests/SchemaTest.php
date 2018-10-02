@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace tests\Libero\Schemas;
 
 use DOMDocument;
@@ -11,7 +13,10 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\Finder\Finder;
 use function Functional\map;
 use function libxml_clear_errors;
+use function libxml_get_errors;
 use function preg_match;
+use function print_r;
+use function trim;
 
 final class SchemaTest extends TestCase
 {
@@ -50,14 +55,20 @@ final class SchemaTest extends TestCase
 
     public function validFileProvider() : iterable
     {
-        $files = Finder::create()->files()->name('*.xml')->in(__DIR__)->path('~/valid/~');
+        $files = Finder::create()->files()
+            ->name('*.xml')
+            ->in(__DIR__)
+            ->path('~/valid/~');
 
         return $this->extractSchemas($files);
     }
 
     public function invalidFileProvider() : iterable
     {
-        $files = Finder::create()->files()->name('*.xml')->in(__DIR__)->path('~/invalid/~');
+        $files = Finder::create()->files()
+            ->name('*.xml')
+            ->in(__DIR__)
+            ->path('~/invalid/~');
 
         return $this->extractSchemas($files);
     }
