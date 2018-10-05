@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace tests\Libero\Schemas;
 
 use Erebot\DOM;
@@ -11,6 +13,8 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\Finder\Finder;
 use function Functional\map;
 use function preg_match;
+use function print_r;
+use function trim;
 
 final class SchemaTest extends TestCase
 {
