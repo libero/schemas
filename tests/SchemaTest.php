@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace tests\Libero\Schemas;
 
-use DOMDocument;
 use FluentDOM;
+use FluentDOM\DOM\Document;
 use FluentDOM\DOM\ProcessingInstruction;
 use Libero\XmlValidator\Failure;
 use Libero\XmlValidator\RelaxNgValidator;
@@ -23,7 +23,7 @@ final class SchemaTest extends TestCase
      * @test
      * @dataProvider validFileProvider
      */
-    public function valid_documents_pass(DOMDocument $document, XmlValidator $validator) : void
+    public function valid_documents_pass(Document $document, XmlValidator $validator) : void
     {
         $this->expectNotToPerformAssertions();
 
@@ -34,7 +34,7 @@ final class SchemaTest extends TestCase
      * @test
      * @dataProvider invalidFileProvider
      */
-    public function invalid_documents_fail(DOMDocument $document, XmlValidator $validator, array $expected) : void
+    public function invalid_documents_fail(Document $document, XmlValidator $validator, array $expected) : void
     {
         try {
             $validator->validate($document);
