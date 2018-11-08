@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f98b7fd516ddc332270a4dd50eade3a",
+    "content-hash": "ec02a433d4826b4fe6d60943b2c19f47",
     "packages": [],
     "packages-dev": [
         {
@@ -130,61 +130,6 @@
             "time": "2017-07-22T11:58:36+00:00"
         },
         {
-            "name": "erebot/dom",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Erebot/DOM.git",
-                "reference": "25ecd53dab28ce39903065284d9d85487508208c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Erebot/DOM/zipball/25ecd53dab28ce39903065284d9d85487508208c",
-                "reference": "25ecd53dab28ce39903065284d9d85487508208c",
-                "shasum": ""
-            },
-            "require": {
-                "ext-dom": "*",
-                "ext-spl": "*",
-                "ext-xsl": "*",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "*",
-                "squizlabs/php_codesniffer": "*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Erebot\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0+"
-            ],
-            "authors": [
-                {
-                    "name": "François Poirotte",
-                    "email": "clicky@erebot.net",
-                    "role": "lead"
-                }
-            ],
-            "description": "Adds Schematron validation support to PHP's DOM extension",
-            "homepage": "https://github.com/Erebot/DOM",
-            "keywords": [
-                "dom",
-                "schematron",
-                "validation"
-            ],
-            "time": "2014-04-05T12:50:53+00:00"
-        },
-        {
             "name": "fluentdom/fluentdom",
             "version": "7.0.0",
             "source": {
@@ -282,6 +227,54 @@
             ],
             "description": "Libero PHP coding standard",
             "time": "2018-10-02T13:20:38+00:00"
+        },
+        {
+            "name": "libero/xml-validator",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/libero/xml-validator.git",
+                "reference": "a9e70e2019f3ba027f0daf77a260c3e9b72db54c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/libero/xml-validator/zipball/a9e70e2019f3ba027f0daf77a260c3e9b72db54c",
+                "reference": "a9e70e2019f3ba027f0daf77a260c3e9b72db54c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-libxml": "*",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "ext-xsl": "*",
+                "libero/coding-standard": "^0.2",
+                "phpstan/phpstan": "^0.10",
+                "phpstan/phpstan-phpunit": "^0.10",
+                "phpunit/phpunit": "^7.2",
+                "symfony/filesystem": "^4.0"
+            },
+            "suggest": {
+                "ext-xsl": "To use SchematronValidator"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Libero\\XmlValidator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "XML validator",
+            "time": "2018-11-08T09:27:18+00:00"
         },
         {
             "name": "lstrojny/functional-php",
@@ -1921,8 +1914,7 @@
     "platform": [],
     "platform-dev": {
         "php": "^7.2",
-        "ext-dom": "*",
-        "ext-libxml": "*"
+        "ext-xsl": "*"
     },
     "platform-overrides": {
         "php": "7.2.0"
