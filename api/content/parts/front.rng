@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<grammar ns="http://libero.pub" xmlns="http://relaxng.org/ns/structure/1.0">
+<grammar ns="http://libero.pub" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+
+    <sch:ns prefix="libero" uri="http://libero.pub"/>
 
     <define name="libero.content.item.front">
 
@@ -57,5 +60,13 @@
     <define name="libero.content.item.front.content.title.content">
         <ref name="libero.inline.limited"/>
     </define>
+
+    <sch:pattern>
+        <sch:rule context="libero:title">
+            <sch:assert test="* or normalize-space()">
+                Title must not be empty
+            </sch:assert>
+        </sch:rule>
+    </sch:pattern>
 
 </grammar>
