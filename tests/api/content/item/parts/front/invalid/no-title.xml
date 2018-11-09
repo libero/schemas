@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../basic.rng"?>
-<?expected-error line="7" message="Expecting an element title, got nothing"?>
-<?expected-error line="7" message="Invalid sequence in interleave"?>
-<?expected-error line="7" message="Element front failed to validate content"?>
+<?xml-model href="../basic.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../basic.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?expected-error line="8" message="Expecting an element title, got nothing"?>
+<?expected-error line="8" message="Invalid sequence in interleave"?>
+<?expected-error line="8" message="Element front failed to validate content"?>
 
 <front xmlns="http://libero.pub" xml:lang="en">
 
