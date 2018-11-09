@@ -37,4 +37,13 @@
         </sch:rule>
     </sch:pattern>
 
+    <sch:pattern>
+        <sch:rule context="/libero:item/libero:front">
+            <sch:let name="id" value="libero:id/text()"/>
+            <sch:assert test="not(preceding-sibling::libero:front[libero:id != $id])">
+                Found differing IDs: <sch:value-of select="preceding-sibling::libero:front[1]/libero:id/text()"/> and <sch:value-of select="$id"/>
+            </sch:assert>
+        </sch:rule>
+    </sch:pattern>
+
 </grammar>
