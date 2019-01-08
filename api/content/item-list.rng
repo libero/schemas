@@ -5,6 +5,8 @@
 
     <sch:ns prefix="libero" uri="http://libero.pub"/>
 
+    <include href="item-ref.rng"/>
+
     <define name="libero.content.item-list">
 
         <element name="item-list">

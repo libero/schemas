@@ -2,7 +2,13 @@
 
 <grammar ns="http://libero.pub/test" xmlns="http://relaxng.org/ns/structure/1.0">
 
-    <include href="../../../../api/content/item.start.rng"/>
+    <include href="../../../test-case.rng"/>
+
+    <include href="../../../../api/content/item.rng"/>
+
+    <start>
+        <ref name="libero.content.item"/>
+    </start>
 
     <define name="libero.content.item.attributes" combine="interleave">
 
