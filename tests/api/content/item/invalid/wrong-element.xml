@@ -5,9 +5,8 @@
 
 <not-item xmlns="http://libero.pub">
     
-    <front xml:lang="en">
+    <meta>
         <id>1234</id>
-        <title>Title</title>
-    </front>
+    </meta>
     
 </not-item>

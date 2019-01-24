@@ -4,9 +4,8 @@
 <?expected-error line="9" message="Error validating datatype string"?>
 <?expected-error line="9" message="Element id failed to validate content"?>
 
-<front xmlns="http://libero.pub" xml:lang="en">
+<libero:meta xmlns:libero="http://libero.pub">
 
-    <id/>
-    <title>Some Title</title>
+    <libero:id/>
 
-</front>
+</libero:meta>

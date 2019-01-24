@@ -2,9 +2,9 @@
 <?xml-model href="../extra-content.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="../extra-content.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
-<front xmlns="http://libero.pub" xmlns:test="http://libero.pub/test" xml:lang="en">
+<meta xmlns="http://libero.pub" xmlns:test="http://libero.pub/test">
 
     <test:content/>
-    <title>Some Title</title>
+    <id>1234</id>
 
-</front>
+</meta>
