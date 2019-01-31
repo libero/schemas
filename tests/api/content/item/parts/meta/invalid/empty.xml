@@ -5,8 +5,4 @@
 <?expected-error line="8" message="Invalid sequence in interleave"?>
 <?expected-error line="8" message="Element meta failed to validate content"?>
 
-<meta xmlns="http://libero.pub">
-
-    <service>foo</service>
-
-</meta>
+<meta xmlns="http://libero.pub"/>

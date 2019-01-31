@@ -16,7 +16,12 @@
     </define>
 
     <define name="libero.content.item.meta.content">
-        <ref name="libero.content.item.meta.content.id"/>
+
+        <interleave>
+            <ref name="libero.content.item.meta.content.id"/>
+            <ref name="libero.content.item.meta.content.service"/>
+        </interleave>
+
     </define>
 
     <define name="libero.content.item.meta.content.id">
@@ -33,6 +38,23 @@
     </define>
 
     <define name="libero.content.item.meta.content.id.content">
+        <ref name="libero.core.types.id"/>
+    </define>
+
+    <define name="libero.content.item.meta.content.service">
+
+        <element name="service">
+            <ref name="libero.content.item.meta.content.service.attributes"/>
+            <ref name="libero.content.item.meta.content.service.content"/>
+        </element>
+
+    </define>
+
+    <define name="libero.content.item.meta.content.service.attributes">
+        <empty/>
+    </define>
+
+    <define name="libero.content.item.meta.content.service.content">
         <ref name="libero.core.types.id"/>
     </define>
 

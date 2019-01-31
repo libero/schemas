@@ -8,6 +8,7 @@
 
     <meta>
         <id>1234</id>
+        <service>foo</service>
     </meta>
 
 </item>

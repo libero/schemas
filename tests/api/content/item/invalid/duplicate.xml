@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../extra-content.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="../extra-content.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?expected-error line="14" message="Duplicate part {http://libero.pub/test}content@xml:lang='en'" node="/libero:item/test:content[2]"?>
+<?expected-error line="15" message="Duplicate part {http://libero.pub/test}content@xml:lang='en'" node="/libero:item/test:content[2]"?>
 
 <libero:item xmlns:libero="http://libero.pub" xmlns:test="http://libero.pub/test">
 
@@ -9,6 +9,7 @@
 
     <libero:meta>
         <libero:id>1234</libero:id>
+        <libero:service>foo</libero:service>
     </libero:meta>
 
     <test:content xml:lang="en"/>

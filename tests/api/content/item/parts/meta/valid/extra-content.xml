@@ -4,6 +4,7 @@
 
 <meta xmlns="http://libero.pub" xmlns:test="http://libero.pub/test">
 
+    <service>foo</service>
     <test:content/>
     <id>1234</id>
 
