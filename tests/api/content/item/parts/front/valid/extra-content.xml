@@ -4,7 +4,6 @@
 
 <front xmlns="http://libero.pub" xmlns:test="http://libero.pub/test" xml:lang="en">
 
-    <id>some-id</id>
     <test:content/>
     <title>Some Title</title>
 

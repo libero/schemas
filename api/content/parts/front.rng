@@ -5,6 +5,14 @@
 
     <sch:ns prefix="libero" uri="http://libero.pub"/>
 
+    <define name="libero.content.item.content" combine="interleave">
+
+        <oneOrMore>
+            <ref name="libero.content.item.front"/>
+        </oneOrMore>
+
+    </define>
+
     <define name="libero.content.item.front">
 
         <element name="front">
@@ -19,29 +27,7 @@
     </define>
 
     <define name="libero.content.item.front.content">
-
-        <interleave>
-            <ref name="libero.content.item.front.content.id"/>
-            <ref name="libero.content.item.front.content.title"/>
-        </interleave>
-
-    </define>
-
-    <define name="libero.content.item.front.content.id">
-
-        <element name="id">
-            <ref name="libero.content.item.front.content.id.attributes"/>
-            <ref name="libero.content.item.front.content.id.content"/>
-        </element>
-
-    </define>
-
-    <define name="libero.content.item.front.content.id.attributes">
-        <empty/>
-    </define>
-
-    <define name="libero.content.item.front.content.id.content">
-        <ref name="libero.core.types.id"/>
+        <ref name="libero.content.item.front.content.title"/>
     </define>
 
     <define name="libero.content.item.front.content.title">
