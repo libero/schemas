@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<grammar ns="http://libero.pub" xmlns="http://relaxng.org/ns/structure/1.0">
+
+    <define name="libero.content.item.meta">
+
+        <element name="meta">
+            <ref name="libero.content.item.meta.attributes"/>
+            <ref name="libero.content.item.meta.content"/>
+        </element>
+
+    </define>
+
+    <define name="libero.content.item.meta.attributes">
+        <empty/>
+    </define>
+
+    <define name="libero.content.item.meta.content">
+
+        <interleave>
+            <ref name="libero.content.item.meta.content.id"/>
+            <ref name="libero.content.item.meta.content.service"/>
+        </interleave>
+
+    </define>
+
+    <define name="libero.content.item.meta.content.id">
+
+        <element name="id">
+            <ref name="libero.content.item.meta.content.id.attributes"/>
+            <ref name="libero.content.item.meta.content.id.content"/>
+        </element>
+
+    </define>
+
+    <define name="libero.content.item.meta.content.id.attributes">
+        <empty/>
+    </define>
+
+    <define name="libero.content.item.meta.content.id.content">
+        <ref name="libero.core.types.id"/>
+    </define>
+
+    <define name="libero.content.item.meta.content.service">
+
+        <element name="service">
+            <ref name="libero.content.item.meta.content.service.attributes"/>
+            <ref name="libero.content.item.meta.content.service.content"/>
+        </element>
+
+    </define>
+
+    <define name="libero.content.item.meta.content.service.attributes">
+        <empty/>
+    </define>
+
+    <define name="libero.content.item.meta.content.service.content">
+        <ref name="libero.core.types.id"/>
+    </define>
+
+</grammar>

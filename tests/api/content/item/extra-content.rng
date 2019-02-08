@@ -12,9 +12,13 @@
 
     <define name="libero.content.item.content" combine="interleave">
 
-        <element name="content">
-            <empty/>
-        </element>
+        <oneOrMore>
+            <element name="content">
+                <optional>
+                    <ref name="libero.core.attributes.lang"/>
+                </optional>
+            </element>
+        </oneOrMore>
 
     </define>
 

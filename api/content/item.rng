@@ -5,15 +5,13 @@
 
     <sch:ns prefix="libero" uri="http://libero.pub"/>
 
-    <include href="parts/front.rng"/>
+    <include href="parts/meta.rng"/>
 
     <define name="libero.content.item">
 
         <element name="item">
             <ref name="libero.content.item.attributes"/>
-            <oneOrMore>
-                <ref name="libero.content.item.content"/>
-            </oneOrMore>
+            <ref name="libero.content.item.content"/>
         </element>
 
     </define>
@@ -23,7 +21,7 @@
     </define>
 
     <define name="libero.content.item.content">
-        <ref name="libero.content.item.front"/>
+        <ref name="libero.content.item.meta"/>
     </define>
 
     <sch:pattern>
@@ -33,15 +31,6 @@
             <sch:let name="namespaceuri" value="namespace-uri()"/>
             <sch:assert test="not(preceding-sibling::*[local-name() = $localname and namespace-uri() = $namespaceuri and @xml:lang = $lang])">
                 Duplicate part {<sch:value-of select="$namespaceuri"/>}<sch:value-of select="$localname"/>@xml:lang='<sch:value-of select="$lang"/>'
-            </sch:assert>
-        </sch:rule>
-    </sch:pattern>
-
-    <sch:pattern>
-        <sch:rule context="/libero:item/libero:front">
-            <sch:let name="id" value="libero:id/text()"/>
-            <sch:assert test="not(preceding-sibling::libero:front[libero:id != $id])">
-                Found differing IDs: <sch:value-of select="preceding-sibling::libero:front[1]/libero:id/text()"/> and <sch:value-of select="$id"/>
             </sch:assert>
         </sch:rule>
     </sch:pattern>
