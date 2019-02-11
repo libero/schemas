@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<grammar ns="http://libero.pub" xmlns="http://relaxng.org/ns/structure/1.0"
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+
+    <sch:ns prefix="libero" uri="http://libero.pub"/>
+
+    <define name="libero.inline.full.highlighting" combine="choice">
+        <ref name="libero.bold.full"/>
+    </define>
+
+    <define name="libero.inline.limited.highlighting" combine="choice">
+        <ref name="libero.bold.limited"/>
+    </define>
+
+    <define name="libero.bold.full">
+
+        <element name="bold">
+            <ref name="libero.bold.full.attributes"/>
+            <ref name="libero.bold.full.content"/>
+        </element>
+
+    </define>
+
+    <define name="libero.bold.limited">
+
+        <element name="bold">
+            <ref name="libero.bold.limited.attributes"/>
+            <ref name="libero.bold.limited.content"/>
+        </element>
+
+    </define>
+
+    <define name="libero.bold.full.attributes">
+        <empty/>
+    </define>
+
+    <define name="libero.bold.full.content">
+        <ref name="libero.inline.full"/>
+    </define>
+
+    <define name="libero.bold.limited.attributes">
+        <empty/>
+    </define>
+
+    <define name="libero.bold.limited.content">
+        <ref name="libero.inline.limited"/>
+    </define>
+
+    <sch:pattern>
+        <sch:rule context="libero:bold">
+            <sch:assert test="not(ancestor::libero:bold)">
+                Bolds must not be nested
+            </sch:assert>
+        </sch:rule>
+    </sch:pattern>
+
+    <sch:pattern>
+        <sch:rule context="libero:bold">
+            <sch:assert test="* or normalize-space()">
+                Bolds must not be empty
+            </sch:assert>
+        </sch:rule>
+    </sch:pattern>
+
+</grammar>

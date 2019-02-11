@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<grammar ns="http://libero.pub/test" xmlns="http://relaxng.org/ns/structure/1.0">
+
+    <include href="../../../../test-case.rng"/>
+
+    <include href="../../../../../extensions/inline/bold.rng"/>
+
+    <start>
+        <ref name="libero.bold.limited"/>
+    </start>
+
+    <define name="libero.bold.limited.attributes" combine="interleave">
+
+        <attribute name="key" ns="http://libero.pub/test">
+            <text/>
+        </attribute>
+
+    </define>
+
+</grammar>
