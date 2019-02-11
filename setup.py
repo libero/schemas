@@ -7,5 +7,6 @@ setup(
     url='http://github.com/libero/schemas',
     author='eLife sciences publications, ltd.',
     license='MIT',
+    packages=['api'],
     zip_safe=False
 )
