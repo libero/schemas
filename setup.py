@@ -5,7 +5,7 @@ setup(
     version='0.1',
     description='libero xml api schemas',
     url='https://github.com/libero/schemas',
-    author='eLife sciences publications, ltd.',
+    maintainer='eLife Sciences Publications, Ltd',
     license='MIT',
     zip_safe=False
 )
