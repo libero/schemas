@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='libero schemas',
+    name='libero-schemas',
     version='0.1',
     description='libero xml api schemas',
     url='http://github.com/libero/schemas',
