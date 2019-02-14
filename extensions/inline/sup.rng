@@ -16,7 +16,7 @@
 
     <define name="libero.sup.full">
 
-        <element name="bold">
+        <element name="sup">
             <ref name="libero.sup.full.attributes"/>
             <ref name="libero.sup.full.content"/>
         </element>
@@ -25,7 +25,7 @@
 
     <define name="libero.sup.limited">
 
-        <element name="bold">
+        <element name="sup">
             <ref name="libero.sup.limited.attributes"/>
             <ref name="libero.sup.limited.content"/>
         </element>
