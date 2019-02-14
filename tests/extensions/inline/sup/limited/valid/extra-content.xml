@@ -2,6 +2,6 @@
 <?xml-model href="../extra-content.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="../extra-content.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
-<sub xmlns="http://libero.pub" xmlns:test="http://libero.pub/test">
+<sup xmlns="http://libero.pub" xmlns:test="http://libero.pub/test">
     foo <test:content>bar</test:content> baz
-</sub>
+</sup>

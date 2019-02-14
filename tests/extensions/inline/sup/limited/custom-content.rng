@@ -4,7 +4,7 @@
 
     <include href="../../../../test-case.rng"/>
 
-    <include href="../../../../../extensions/inline/sub.rng">
+    <include href="../../../../../extensions/inline/sup.rng">
 
         <define name="libero.sup.limited.content">
 
