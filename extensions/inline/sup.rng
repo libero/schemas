@@ -37,7 +37,7 @@
     </define>
 
     <define name="libero.sup.full.content">
-        <ref name="libero.inline.full"/>
+        <text/>
     </define>
 
     <define name="libero.sup.limited.attributes">
@@ -45,16 +45,8 @@
     </define>
 
     <define name="libero.sup.limited.content">
-        <ref name="libero.inline.limited"/>
+        <text/>
     </define>
-
-    <sch:pattern>
-        <sch:rule context="libero:sup">
-            <sch:assert test="not(ancestor::libero:sup)">
-                Superscripts must not be nested
-            </sch:assert>
-        </sch:rule>
-    </sch:pattern>
 
     <sch:pattern>
         <sch:rule context="libero:sup">

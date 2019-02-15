@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../extra-content.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="../extra-content.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?expected-error line="7" message="Superscripts must not be nested" node="/libero:sup/test:content/libero:sup"?>
+<?expected-error line="7" message="Did not expect element content there"?>
 
 <libero:sup xmlns:libero="http://libero.pub" xmlns:test="http://libero.pub/test">
     foo <test:content>bar <libero:sup>baz</libero:sup></test:content>
