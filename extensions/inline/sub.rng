@@ -37,7 +37,7 @@
     </define>
 
     <define name="libero.sub.full.content">
-        <ref name="libero.inline.full"/>
+        <text/>
     </define>
 
     <define name="libero.sub.limited.attributes">
@@ -45,16 +45,8 @@
     </define>
 
     <define name="libero.sub.limited.content">
-        <ref name="libero.inline.limited"/>
+        <text/>
     </define>
-
-    <sch:pattern>
-        <sch:rule context="libero:sub">
-            <sch:assert test="not(ancestor::libero:sub)">
-                Subscripts must not be nested
-            </sch:assert>
-        </sch:rule>
-    </sch:pattern>
 
     <sch:pattern>
         <sch:rule context="libero:sub">
