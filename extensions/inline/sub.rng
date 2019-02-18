@@ -6,11 +6,11 @@
 
     <sch:ns prefix="libero" uri="http://libero.pub"/>
 
-    <define name="libero.inline.full.highlighting" combine="choice">
+    <define name="libero.inline.full.subsup" combine="choice">
         <ref name="libero.sub.full"/>
     </define>
 
-    <define name="libero.inline.limited.highlighting" combine="choice">
+    <define name="libero.inline.limited.subsup" combine="choice">
         <ref name="libero.sub.limited"/>
     </define>
 
