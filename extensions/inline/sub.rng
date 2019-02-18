@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<grammar ns="http://libero.pub" xmlns="http://relaxng.org/ns/structure/1.0"
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+
+    <sch:ns prefix="libero" uri="http://libero.pub"/>
+
+    <define name="libero.inline.full.subsup" combine="choice">
+        <ref name="libero.sub.full"/>
+    </define>
+
+    <define name="libero.inline.limited.subsup" combine="choice">
+        <ref name="libero.sub.limited"/>
+    </define>
+
+    <define name="libero.sub.full">
+
+        <element name="sub">
+            <ref name="libero.sub.full.attributes"/>
+            <ref name="libero.sub.full.content"/>
+        </element>
+
+    </define>
+
+    <define name="libero.sub.limited">
+
+        <element name="sub">
+            <ref name="libero.sub.limited.attributes"/>
+            <ref name="libero.sub.limited.content"/>
+        </element>
+
+    </define>
+
+    <define name="libero.sub.full.attributes">
+        <empty/>
+    </define>
+
+    <define name="libero.sub.full.content">
+        <text/>
+    </define>
+
+    <define name="libero.sub.limited.attributes">
+        <empty/>
+    </define>
+
+    <define name="libero.sub.limited.content">
+        <text/>
+    </define>
+
+    <sch:pattern>
+        <sch:rule context="libero:sub">
+            <sch:assert test="* or normalize-space()">
+                Subscripts must not be empty
+            </sch:assert>
+        </sch:rule>
+    </sch:pattern>
+
+</grammar>
