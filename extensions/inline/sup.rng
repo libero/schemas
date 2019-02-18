@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<grammar ns="http://libero.pub" xmlns="http://relaxng.org/ns/structure/1.0"
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+
+    <sch:ns prefix="libero" uri="http://libero.pub"/>
+
+    <define name="libero.inline.full.subsup" combine="choice">
+        <ref name="libero.sup.full"/>
+    </define>
+
+    <define name="libero.inline.limited.subsup" combine="choice">
+        <ref name="libero.sup.limited"/>
+    </define>
+
+    <define name="libero.sup.full">
+
+        <element name="sup">
+            <ref name="libero.sup.full.attributes"/>
+            <ref name="libero.sup.full.content"/>
+        </element>
+
+    </define>
+
+    <define name="libero.sup.limited">
+
+        <element name="sup">
+            <ref name="libero.sup.limited.attributes"/>
+            <ref name="libero.sup.limited.content"/>
+        </element>
+
+    </define>
+
+    <define name="libero.sup.full.attributes">
+        <empty/>
+    </define>
+
+    <define name="libero.sup.full.content">
+        <text/>
+    </define>
+
+    <define name="libero.sup.limited.attributes">
+        <empty/>
+    </define>
+
+    <define name="libero.sup.limited.content">
+        <text/>
+    </define>
+
+    <sch:pattern>
+        <sch:rule context="libero:sup">
+            <sch:assert test="* or normalize-space()">
+                Superscripts must not be empty
+            </sch:assert>
+        </sch:rule>
+    </sch:pattern>
+
+</grammar>
