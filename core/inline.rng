@@ -39,10 +39,12 @@
 
     <define name="libero.inline.full.formatting">
         <ref name="libero.inline.full.highlighting"/>
+        <ref name="libero.inline.full.subsup"/>
     </define>
 
     <define name="libero.inline.limited.formatting">
         <ref name="libero.inline.limited.highlighting"/>
+        <ref name="libero.inline.limited.subsup"/>
     </define>
 
     <define name="libero.inline.full.highlighting">
@@ -50,6 +52,14 @@
     </define>
 
     <define name="libero.inline.limited.highlighting">
+        <empty/>
+    </define>
+
+    <define name="libero.inline.full.subsup">
+        <empty/>
+    </define>
+
+    <define name="libero.inline.limited.subsup">
         <empty/>
     </define>
 
