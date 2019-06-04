@@ -6,9 +6,8 @@ from setuptools import setup, find_packages
 # copy data files to package using bdist_wheel
 # sdist uses MANIFEST.in
 data_files = defaultdict(list)
-for path in [Path('./api'), Path('./core'), Path('./extensions')]:
-    for item in path.rglob('**/*.rng'):
-        data_files[str(item.parent)].append(str(item))
+for item in Path('.').rglob('*.rng'):
+    data_files[str(item.parent)].append(str(item))
 
 
 setup(
