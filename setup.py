@@ -1,4 +1,15 @@
-from setuptools import setup
+from collections import defaultdict
+from pathlib import Path
+from setuptools import setup, find_packages
+
+
+# copy data files to package using bdist_wheel
+# sdist uses MANIFEST.in
+data_files = defaultdict(list)
+for path in [Path('./api'), Path('./core'), Path('./extensions')]:
+    for item in path.rglob('**/*.rng'):
+        data_files[str(item.parent)].append(str(item))
+
 
 setup(
     name='libero-schemas',
@@ -7,5 +18,7 @@ setup(
     url='https://github.com/libero/schemas',
     maintainer='eLife Sciences Publications, Ltd',
     license='MIT',
-    zip_safe=False
+    packages= find_packages(exclude='tests'),
+    data_files=[(k, v) for k, v in data_files.items()],
+    zip_safe=False,
 )

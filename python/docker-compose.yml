@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  test_sdist:
+    build:
+      context: ..
+      dockerfile: python/Dockerfile
+      target: test_sdist
+  test_bdist:
+    build:
+      context: ..
+      dockerfile: python/Dockerfile
+      target: test_bdist
+  test_git:
+    build:
+      context: ..
+      dockerfile: python/Dockerfile
+      target: test_git
