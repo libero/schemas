@@ -1,7 +1,7 @@
 from pathlib import Path
-from xml.etree import ElementTree
 
 import pytest
+from lxml import etree
 
 from libero_schemas.utils import MultipleFilesFound, get_schema_file_path
 
@@ -19,9 +19,10 @@ def test_get_schema_file_path_returns_file_path(file_name) -> None:
     Checks that the schemas are installed (including those in subdirectories),
     a file path is returned and can be parsed by lxml.
     """
-    path = get_schema_file_path(file_name)
-    assert Path(path).is_file()
-    ElementTree.parse(path)  # will raise exception is file cannot be parsed
+    schema_path = get_schema_file_path(file_name)
+    assert Path(schema_path).is_file()
+    xmlschema_doc = etree.parse(schema_path)  # will raise exception if file cannot be parsed
+    etree.RelaxNG(xmlschema_doc)  # will raise exception if schema is invalid
 
 
 def test_get_schema_file_path_raises_multiple_files_found_exception(mocker) -> None:

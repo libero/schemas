@@ -1,4 +1,4 @@
-FROM python:3.7.3-alpine3.9 as base
+FROM python:3.7.3-slim as base
 
 ENV VERSION=0.0.1
 
