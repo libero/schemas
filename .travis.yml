@@ -27,9 +27,9 @@ jobs:
         - stage: Python Support
           name: Python package tests
           script:
-            - docker-compose -f python/docker-compose.yml run --rm test_sdist
-            - docker-compose -f python/docker-compose.yml run --rm test_bdist
-            - docker-compose -f python/docker-compose.yml run --rm test_git
+            - docker-compose -f python/docker-compose.yml run --rm test-sdist
+            - docker-compose -f python/docker-compose.yml run --rm test-bdist
+            - docker-compose -f python/docker-compose.yml run --rm test-git
 
 stages:
     - Test

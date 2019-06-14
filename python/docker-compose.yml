@@ -1,18 +1,31 @@
 version: '3.4'
 
 services:
-  test_sdist:
+  test-sdist:
+    &test
     build:
       context: ..
       dockerfile: python/Dockerfile
-      target: test_sdist
-  test_bdist:
-    build:
-      context: ..
-      dockerfile: python/Dockerfile
-      target: test_bdist
-  test_git:
-    build:
-      context: ..
-      dockerfile: python/Dockerfile
-      target: test_git
+      target: base
+    volumes:
+      - ..:/srv/app
+    command: "bash -c ' \
+        python setup.py sdist \
+        && rm -rf api/ core/ extensions/ libero_schemas/ \
+        && pip install dist/libero-schemas-${VERSION}.tar.gz \
+        && pytest -vv
+      '"
+  test-bdist:
+    <<: *test
+    command: "bash -c ' \
+        python setup.py bdist --universal \
+        && rm -rf api/ core/ extensions/ libero_schemas/ \
+        && pip install dist/libero-schemas-${VERSION}.tar.gz \
+        && pytest -vv
+      '"
+  test-git:
+    <<: *test
+    command: "bash -c ' \
+        pip install -e . \
+        && pytest -vv
+      '"

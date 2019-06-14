@@ -9,9 +9,13 @@ access to schemas and access to schema utilities by adding
 * [Docker](https://www.docker.com/)
 
 ## Run tests
-From the project root run the following command:
+From the project root run the following command to run tests on all distribution types:
 ```bash
 docker-compose -f python/docker-compose.yml up
+```
+Or run the following command to run tests on the git distribution type:
+```bash
+docker-compose -f python/docker-compose.yml rm --rm test-git
 ```
 
 ## Getting help
