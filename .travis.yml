@@ -1,5 +1,8 @@
 language: php
 
+services:
+  - docker
+
 php: 7.2
 
 before_install:
@@ -20,6 +23,13 @@ jobs:
           name: Coding standards
           script:
               - vendor/bin/phpcs -p
+
+        - stage: Python Support
+          name: Python package tests
+          script:
+            - docker-compose -f python/docker-compose.yml run --rm test-sdist
+            - docker-compose -f python/docker-compose.yml run --rm test-bdist
+            - docker-compose -f python/docker-compose.yml run --rm test-git
 
 stages:
     - Test
